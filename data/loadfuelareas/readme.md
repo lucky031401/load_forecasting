@@ -1,0 +1,1 @@
+load fuel type data 
