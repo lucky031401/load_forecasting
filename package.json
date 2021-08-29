@@ -11,11 +11,21 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.3.5",
+    "@rleys/vue-plotly-basic": "^1.1.5",
+    "@statnett/vue-plotly": "^0.3.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "chart.js": "^2.8.0",
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
-  },
-  "devDependencies": {}
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.6",
+    "nuxt": "^2.15.7",
+    "plotly": "^1.0.6",
+    "plotly.js": "^2.4.1",
+    "vue-chartjs": "^2.9.4",
+    "vue-plotly": "^1.1.0"
+  }
 }
