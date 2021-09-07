@@ -1,0 +1,17 @@
+--2021-08-24 08:06:38--  https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA
+Resolving docs.google.com (docs.google.com)... 74.125.195.139, 74.125.195.100, 74.125.195.101, ...
+Connecting to docs.google.com (docs.google.com)|74.125.195.139|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://doc-08-48-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/33fcaj4sbbetei9oukkjoi44a0l790qs/1629792375000/15876260727594163214/*/0B3X9GlR6EmbnQ0FtZmJJUXEyRTA [following]
+Warning: wildcards not supported in HTTP.
+--2021-08-24 08:06:40--  https://doc-08-48-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/33fcaj4sbbetei9oukkjoi44a0l790qs/1629792375000/15876260727594163214/*/0B3X9GlR6EmbnQ0FtZmJJUXEyRTA
+Resolving doc-08-48-docs.googleusercontent.com (doc-08-48-docs.googleusercontent.com)... 74.125.135.132, 2607:f8b0:400e:c01::84
+Connecting to doc-08-48-docs.googleusercontent.com (doc-08-48-docs.googleusercontent.com)|74.125.135.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-executable]
+Saving to: ‘gdrive’
+
+gdrive                           [<=>                                            ]       0  --.-KB/s               gdrive                           [ <=>                                           ]   7.44M  --.-KB/s    in 0.07s   
+
+2021-08-24 08:06:41 (105 MB/s) - ‘gdrive’ saved [7805504]
+
