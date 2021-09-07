@@ -14,7 +14,7 @@ import numpy as np
 input_length = 144
 output_length = 144
 
-x = pd.read_csv( '/home/g22qkqkq/load-forecast/data/sample/sampleInputData.csv', index_col=0 )
+x = pd.read_csv( '../data/sampleInputData.csv', index_col=0 )
 x_load = np.array(x.loc[ :, 'load' ])
 x_bodyComfort = np.array(x.loc[ :, 'bodyComfort' ])
 x_lastWeek = np.array(x.loc[ :, 'lastWeek' ])
@@ -53,7 +53,7 @@ model.add(Dense(output_length))
 # 輸出模型摘要資訊
 model.summary()
 # load model param
-model.load_weights('/home/g22qkqkq/load-forecast/data/sample/19-0.0013-0.0015.hdf5')
+model.load_weights('../data/19-0.0013-0.0015.hdf5')
 
 
 
@@ -66,12 +66,9 @@ predResult = scaler_load.inverse_transform(predResult)
 # to one dim
 predResult = np.reshape( predResult,(predResult.shape[1]) )
 
-# save as npy file
-
-pd.DataFrame(predResult).to_csv("/home/g22qkqkq/load-forecast/data/sample/sample.csv",header=None,index=None)
+pd.DataFrame(predResult).to_csv("../data/sample.csv",header=None,index=None)
 
 print("forkin"+"me")
-
 
 
 
