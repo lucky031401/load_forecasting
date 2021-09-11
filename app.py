@@ -20,6 +20,7 @@ s = date_en.strftime('%Y_%m_%d')
 picked = pd.read_csv('./data/loadfueltype/'+s+'.csv')
 st.dataframe(picked)
 print(x)
+st.subheader('sample.csv')
 plot = alt.Chart(x).mark_line().encode(
     alt.X('hoursminutes(date):T', title='hour of day'),
     alt.Y('forecast:Q', title='Forecast'),
