@@ -1,5 +1,5 @@
-pandas==1.1.2
-numpy==1.18.5
-streamlit==0.67.0
-matplotlib==3.3.2
+pandas
+numpy
+streamlit
+matplotlib
 sklearn
