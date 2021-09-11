@@ -25,7 +25,7 @@ plot = alt.Chart(x).mark_line().encode(
     alt.X('hoursminutes(date):T', title='hour of day'),
     alt.Y('forecast:Q', title='Forecast'),
 ).properties(
-    width=500,
-    height=300
+    width=700,
+    height=330
 )
 st.write(plot)
