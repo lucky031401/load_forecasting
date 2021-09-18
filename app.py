@@ -11,7 +11,7 @@ import os
 x = pd.read_csv( './data/sample/sample.csv',names=["forecast"] )
 y = pd.read_csv( './data/sample/sampleInputData.csv')
 y = pd.DataFrame(y['date'])
-y['date'] = pd.to_datetime(y.date,format = '%Y_%m_%d %H:%M') 
+y['date'] = pd.to_datetime(y.date,format = '%Y-%%m-%d %H:%M:%S') 
 y['date'] = y['date'].dt.tz_localize('Asia/Shanghai')
 x = pd.concat([x,y],axis=1)
 st.title('forecast')
