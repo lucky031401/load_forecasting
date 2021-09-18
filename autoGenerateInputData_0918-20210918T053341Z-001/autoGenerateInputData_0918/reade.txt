@@ -1,0 +1,14 @@
+（1）
+    InputDataGenerator.py 用在產生最新"一日"的輸入資料
+    所產生之格式與之前範例之 sampleInputData.csv 相同
+
+（2）
+    InputDataGenerator_test.py 是用在操作 InputDataGenerator.py 
+    在 >>> 使用上應該只需要動這端即可 <<< ，使用上有兩個參數：
+    1.git上端 data資料夾 的路徑
+    2.當前日期 （因為目前資料庫內資料沒有支援到當前日期，故先讓使用者端設定）
+    >>> 直接執行 InputDataGenerator_test.py 即可自動產生相應檔案
+
+（3）
+    cityUsingElecPercentage.csv 就是台電的縣市佔比資料，改名而已XD
+    這部份比較麻煩，要請巧薇幫我放入資料夾 data 內部，才可以執行
