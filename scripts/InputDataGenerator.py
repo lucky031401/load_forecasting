@@ -189,7 +189,7 @@ class LoadGenerator:
         # 進行單位轉換，要*10，符合之前的資料 10^6 w
         file.iloc[:,1:5] = file.iloc[:,1:5].mul(10)
 
-        # 產生新的 total load
+        # 產生新的 totl load
         new_file = file[['date']].copy() 
         new_file['total_load'] = file.iloc[:,1:5].sum(axis=1) # 合併4個區域的總負載
 
@@ -240,6 +240,6 @@ class InputDataGenerator:
         finalData['bodyComfort'] = expendBDData
         finalData['lastWeek'] = lastWeekData
 
-        finalData.to_csv( self.pathOfDataFolder + '/' +str(self.dateOfToday) + '_predData.csv' )
+        finalData.to_csv( self.pathOfDataFolder + '/sample/sampleInputData.csv' )
         print("輸入資料產生完成")
 
