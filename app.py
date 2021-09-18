@@ -31,5 +31,9 @@ plot = alt.Chart(data).mark_line().encode(
     width=700,
     height=330
 )
-
 st.write(plot)
+max_value =  x['預測負載'].max()
+my_max_ind = x['預測負載'].idxmax()   
+st.write('預測最大負載值:',max_value)
+st.markdown("")
+st.write("預測最大負載時間:",x.at[my_max_ind,'date'])
