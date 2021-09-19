@@ -240,6 +240,6 @@ class InputDataGenerator:
         finalData['bodyComfort'] = expendBDData
         finalData['lastWeek'] = lastWeekData
 
-        finalData.to_csv( self.pathOfDataFolder + '/sample/sampleInputData.csv' )
+        finalData.to_csv( self.pathOfDataFolder + '/sample/sampleInputData_2.csv' )
         print("輸入資料產生完成")
 
