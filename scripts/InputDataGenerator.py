@@ -44,7 +44,7 @@ class BodyComfortGenerator:
         for j in range(len(number)):
 
             # 此處抓取早上六點的明日預報，抓取哪筆差異不大
-            f = open( self.pathOfDataFolder+'/weather/F-D0047-' + number[j] + '/F-D0047-' + number[j] + '-'+todayDateFormateOfFile+'_06.json', mode="r",
+            f = open( self.pathOfDataFolder+'/weather/F-D0047-' + number[j] + '/F-D0047-' + number[j] + '-'+todayDateFormateOfFile+'.json', mode="r",
                     encoding='utf8')  # 加encoding才可以辨識中文
             dataarr = []
 
