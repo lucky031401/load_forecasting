@@ -6,6 +6,6 @@ in future(while actual using), the "dateOfToday" will be datetime.today()
 """
 
 GNT = InputDataGenerator( pathOfDataFolder = '../data',
-                          dateOfToday = datetime.date.today()-timedelta(days=1))
+                          dateOfToday = datetime.date(2021, 7, 3))
 
 GNT.autoRun()

@@ -11,7 +11,7 @@ import os
 
 x = pd.read_csv( './data/sample/sample.csv',names=["預測負載"] ,index_col = False)
 y = pd.read_csv( './data/sample/sampleInputData.csv',index_col=False)
-st.write(y)
+
 today = pd.read_csv('https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/loadareas.csv',names=["time","north","central","south","east"],index_col = False)
 
 today['當日總負載'] = today.sum(axis=1)*10
