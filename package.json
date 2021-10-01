@@ -13,7 +13,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.3.5",
-    "@rleys/vue-plotly-basic": "^1.1.5",
+    "@rleys/vue-plotly-basic": "^1.1.6",
     "@statnett/vue-plotly": "^0.3.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
