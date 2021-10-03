@@ -53,7 +53,7 @@ model.add(Dense(output_length))
 # 輸出模型摘要資訊
 model.summary()
 # load model param
-model.load_weights('/home/g22qkqkq/load-forecast/data/sample/19-0.0013-0.0015.hdf5')
+model.load_weights('/home/g22qkqkq/load-forecast/data/sample/29-0.0006-0.0032.hdf5')
 
 
 
