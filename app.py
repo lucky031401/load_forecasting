@@ -13,7 +13,6 @@ x = pd.read_csv( './data/sample/sample.csv',names=["預測負載"] ,index_col = 
 y = pd.read_csv( './data/sample/sampleInputData.csv',index_col=False)
 
 today = pd.read_csv('https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/loadareas.csv',names=["time","north","central","south","east"],index_col = False)
-
 today['當日總負載'] = today.sum(axis=1)*10
 today.drop(["time","north","central","south","east"], axis=1, inplace=True)
 y = pd.DataFrame(y['date'])
@@ -23,7 +22,6 @@ x = pd.concat([x,y,today],axis=1)
 st.title('電力負載預測')
 d = st.date_input("請選擇欲觀察曲線",datetime.date.today(),min_value=datetime.date.today(),max_value = datetime.date.today()+timedelta(days=2))
 st.write(d)
-
 st.subheader('預測資料')
 data = x.melt('date',var_name='數據',value_name='負載量（Mw）')
 plot = alt.Chart(data).mark_line().encode(
