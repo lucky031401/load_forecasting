@@ -9,12 +9,13 @@ import pandas as pd
 import altair as alt
 import os 
 
-d = st.date_input("請選擇欲觀察曲線",datetime.date.today(),min_value=datetime.date.today(),max_value = datetime.date.today()+timedelta(days=2))
-if d == datetime.date.today():
-    y = pd.read_csv( './data/sample/sample.csv',index_col=False)
+d = st.date_input("請選擇欲觀察曲線",datetime.date.today(),min_value=datetime.date.today(),max_value = datetime.date.today()+timedelta(days=1))
+if d == datetime.date.today():    
+    x = pd.read_csv( './data/sample/sample.csv',names=["預測負載"] ,index_col = False)
 else:
-    y = pd.read_csv( './data/sample/sample_2.csv',index_col=False)
-x = pd.read_csv( './data/sample/sample.csv',names=["預測負載"] ,index_col = False)
+    x = pd.read_csv( './data/sample/sample_2.csv',names=["預測負載"] ,index_col = False)
+y = pd.read_csv( './data/sample/sampleInputData.csv',index_col=False)
+print(y)
 today = pd.read_csv('https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/loadareas.csv',names=["time","north","central","south","east"],index_col = False)
 today['當日總負載'] = today.sum(axis=1)*10
 today.drop(["time","north","central","south","east"], axis=1, inplace=True)
@@ -35,8 +36,9 @@ plot = alt.Chart(data).mark_line().encode(
     height=330
 )
 st.write(plot)
+x['time'] = pd.to_datetime(x['date']).dt.time
 max_value =  x['預測負載'].max()
 my_max_ind = x['預測負載'].idxmax()   
 st.write('預測最大負載值:',max_value)
 st.markdown("")
-st.write("預測最大負載時間:",x.at[my_max_ind,'date'])
+st.write("預測最大負載時間:",x.at[my_max_ind,'time'])
