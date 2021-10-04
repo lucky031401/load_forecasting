@@ -42,7 +42,7 @@ print( x_input.shape )
 
 from keras.models import Sequential
 from keras import backend as K
-from keras.layers import Dense, Activation, CuDNNLSTM, LSTM, Flatten, RepeatVector, Permute, Multiply, Lambda, merge
+from keras.layers import Dense, Activation, LSTM, Flatten, RepeatVector, Permute, Multiply, Lambda, merge
 from keras import optimizers, Input, Model
 
 def model_lstm_selfAttention(
@@ -50,8 +50,8 @@ def model_lstm_selfAttention(
     output_length,
 ):
     inputs = Input(shape=input_shape)
-    output_lstm1 = CuDNNLSTM(288,return_sequences=True,input_shape=input_shape) (inputs)
-    output_lstm2 = CuDNNLSTM(144,return_sequences=False) (output_lstm1)
+    output_lstm1 = LSTM(288,return_sequences=True,input_shape=input_shape) (inputs)
+    output_lstm2 = LSTM(144,return_sequences=False) (output_lstm1)
 
     e = Dense(1, activation='tanh') (output_lstm2)
     # Now do all the softmax business taking the above o/p
