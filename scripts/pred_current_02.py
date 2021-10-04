@@ -14,7 +14,7 @@ import numpy as np
 input_length = 144
 output_length = 144
 
-x = pd.read_csv( '../data/sampleInputData.csv', index_col=0 )
+x = pd.read_csv( '/home/g22qkqkq/load-forecast/data/sample/sampleInputData_2.csv', index_col=0 )
 x_load = np.array(x.loc[ :, 'load' ])
 x_bodyComfort = np.array(x.loc[ :, 'bodyComfort' ])
 x_lastWeek = np.array(x.loc[ :, 'lastWeek' ])
@@ -41,19 +41,43 @@ x_input = np.reshape(x_input,(1,x_input.shape[0],x_input.shape[1]))
 print( x_input.shape )
 
 from keras.models import Sequential
-from keras.layers import Dense,Activation,CuDNNLSTM,LSTM
-from keras import optimizers
+from keras import backend as K
+from keras.layers import Dense, Activation, CuDNNLSTM, LSTM, Flatten, RepeatVector, Permute, Multiply, Lambda, merge
+from keras import optimizers, Input, Model
 
-model = Sequential()
-model.add(LSTM(288,return_sequences=True,input_shape=(x_input.shape[1],x_input.shape[2]))) # 此處輸入特徵(feature)為3喔!
-model.add(LSTM(144,return_sequences=False))
-model.add(Dense(144,activation='relu'))
-model.add(Dense(output_length))
+def model_lstm_selfAttention(
+    input_shape,
+    output_length,
+):
+    inputs = Input(shape=input_shape)
+    output_lstm1 = CuDNNLSTM(288,return_sequences=True,input_shape=input_shape) (inputs)
+    output_lstm2 = CuDNNLSTM(144,return_sequences=False) (output_lstm1)
+
+    e = Dense(1, activation='tanh') (output_lstm2)
+    # Now do all the softmax business taking the above o/p
+    e = Flatten() (e)
+    a = Activation('softmax') (e)
+    temp = RepeatVector(144) (a)
+    temp = Permute([2, 1]) (temp)
+    # multiply weight with lstm layer o/p
+    output = merge.Multiply()([output_lstm2, temp])
+    # Get the attention adjusted output state
+    output = Lambda(lambda values: K.sum(values, axis=1))(output)
+    return Model(inputs, output)
+
+
+model = model_lstm_selfAttention(
+    input_shape = (x_input.shape[1],x_input.shape[2]),
+    output_length = output_length
+)
+
+model.compile(optimizer='adam',loss='mse',metrics=['mae'])
 
 # 輸出模型摘要資訊
 model.summary()
+
 # load model param
-model.load_weights('../data/19-0.0013-0.0015.hdf5')
+model.load_weights('/home/g22qkqkq/load-forecast/data/sample/29-0.0006-0.0032.hdf5')
 
 
 
@@ -66,9 +90,12 @@ predResult = scaler_load.inverse_transform(predResult)
 # to one dim
 predResult = np.reshape( predResult,(predResult.shape[1]) )
 
-pd.DataFrame(predResult).to_csv("../data/sample.csv",header=None,index=None)
+# save as npy file
+
+pd.DataFrame(predResult).to_csv("/home/g22qkqkq/load-forecast/data/sample/sample_2.csv",header=None,index=None)
 
 print("forkin"+"me")
+
 
 
 
