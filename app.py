@@ -15,7 +15,6 @@ if d == datetime.date.today():
 else:
     x = pd.read_csv( './data/sample/sample_2.csv',names=["預測負載"] ,index_col = False)
 y = pd.read_csv( './data/sample/sampleInputData.csv',index_col=False)
-print(y)
 today = pd.read_csv('https://www.taipower.com.tw/d006/loadGraph/loadGraph/data/loadareas.csv',names=["time","north","central","south","east"],index_col = False)
 today['當日總負載'] = today.sum(axis=1)*10
 today.drop(["time","north","central","south","east"], axis=1, inplace=True)
@@ -23,6 +22,8 @@ y = pd.DataFrame(y['date'])
 y['date'] = pd.to_datetime(y.date,format = '%Y-%m-%d %H:%M:%S') 
 y['date'] = y['date'].dt.tz_localize('Asia/Shanghai')
 x = pd.concat([x,y,today],axis=1)
+if d !=  datetime.date.today():
+    del x["當日總負載"]
 st.title('電力負載預測')
 st.subheader('預測資料')
 data = x.melt('date',var_name='數據',value_name='負載量（Mw）')
