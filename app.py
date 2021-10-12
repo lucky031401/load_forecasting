@@ -9,7 +9,7 @@ import pandas as pd
 import altair as alt
 import os 
 
-d = st.date_input("請選擇欲觀察曲線",datetime.date.today(),min_value=datetime.date.today(),max_value = datetime.date.today()+timedelta(days=1))
+d = st.date_input("請選擇欲觀察電力負載曲線",datetime.date.today(),min_value=datetime.date.today(),max_value = datetime.date.today()+timedelta(days=1))
 if d == datetime.date.today():    
     x = pd.read_csv( './data/sample/sample.csv',names=["預測負載"] ,index_col = False)
 else:
