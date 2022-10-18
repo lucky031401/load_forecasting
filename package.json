@@ -24,7 +24,7 @@
     "dayjs": "^1.10.6",
     "nuxt": "^2.15.7",
     "plotly": "^1.0.6",
-    "plotly.js": "^2.4.1",
+    "plotly.js": "^2.16.0",
     "vue-chartjs": "^3.5.1",
     "vue-d3": "^0.1.0",
     "vue-plotly": "^1.1.0"
