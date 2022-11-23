@@ -15,7 +15,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@rleys/vue-plotly-basic": "^1.1.5",
     "@statnett/vue-plotly": "^0.3.2",
-    "axios": "^0.21.1",
+    "axios": "^1.2.0",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "chart.js": "^2.9.4",
