@@ -16,7 +16,7 @@
     "@rleys/vue-plotly-basic": "^1.1.5",
     "@statnett/vue-plotly": "^0.3.2",
     "axios": "^0.21.1",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.2.3",
     "bootstrap-vue": "^2.21.2",
     "chart.js": "^2.9.4",
     "core-js": "^3.15.1",
